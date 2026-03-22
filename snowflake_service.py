@@ -7,12 +7,7 @@ from pathlib import Path
 
 import snowflake.connector
 from dotenv import load_dotenv
-
-# ------------------------------------------------------------------
-# Load .env explicitly
-# ------------------------------------------------------------------
-dotenv_path = Path(__file__).parent.parent / ".env"
-load_dotenv(dotenv_path)
+load_dotenv()  # safe locally, ignored in Render
 
 # ------------------------------------------------------------------
 # Environment variables
