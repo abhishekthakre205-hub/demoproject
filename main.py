@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request, Form, Header, BackgroundTasks
 from fastapi.responses import JSONResponse
 from auth import verify_slack_request, check_user_permission
-from snowflake_service import onboard_user, reset_password
+from snowflake_service import onboard_user, reset_password, delete_user
 import os
 import requests
 
