@@ -30,13 +30,22 @@ SNOWFLAKE_WAREHOUSE = os.getenv("SNOWFLAKE_WAREHOUSE", "COMPUTE_WH")
 # Connection helper
 # ------------------------------------------------------------------
 def get_snowflake_connection():
+    print("Connecting to Snowflake...")
+    print("Account:", SNOWFLAKE_ACCOUNT)
+
     return snowflake.connector.connect(
         user=SNOWFLAKE_USER,
         password=SNOWFLAKE_PASSWORD,
-        # account=SNOWFLAKE_ACCOUNT,
         account=SNOWFLAKE_ACCOUNT,
+
         role=SNOWFLAKE_ROLE,
         warehouse=SNOWFLAKE_WAREHOUSE,
+
+        # 🔥 IMPORTANT FIXES
+        login_timeout=60,
+        network_timeout=60,
+        client_session_keep_alive=True,
+        insecure_mode=True
     )
 
 
