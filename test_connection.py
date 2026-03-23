@@ -47,7 +47,7 @@ try:
     conn = snowflake.connector.connect(
     user=os.getenv("SNOWFLAKE_USER"),
     password=os.getenv("SNOWFLAKE_PASSWORD"),
-    account="thvzgvn-mb22986.us-west-2.aws"
+    account="thvzgvn-mb22986"
 )
 
 
