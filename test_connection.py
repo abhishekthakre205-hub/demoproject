@@ -31,7 +31,7 @@ from dotenv import load_dotenv
 import os
 import snowflake.connector
 
-# Load .env from project root
+# Load .env from project roo
 load_dotenv()
 
 print("USER     =", os.getenv("SNOWFLAKE_USER"))
