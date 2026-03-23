@@ -36,11 +36,7 @@ def get_snowflake_connection():
         role=SNOWFLAKE_ROLE,
         warehouse=SNOWFLAKE_WAREHOUSE,
 
-        # 🔥 IMPORTANT FIXES
-        login_timeout=60,
-        network_timeout=60,
-        client_session_keep_alive=True,
-        insecure_mode=True
+        
     )
 
 
