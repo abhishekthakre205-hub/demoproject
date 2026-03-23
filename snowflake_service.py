@@ -7,7 +7,12 @@ from pathlib import Path
 
 import snowflake.connector
 from dotenv import load_dotenv
-load_dotenv()  # safe locally, ignored in Render
+
+# ------------------------------------------------------------------
+# Load .env explicitly
+# ------------------------------------------------------------------
+dotenv_path = Path(__file__).parent / ".env"
+load_dotenv(dotenv_path)
 
 # ------------------------------------------------------------------
 # Environment variables
@@ -25,18 +30,13 @@ SNOWFLAKE_WAREHOUSE = os.getenv("SNOWFLAKE_WAREHOUSE", "COMPUTE_WH")
 # Connection helper
 # ------------------------------------------------------------------
 def get_snowflake_connection():
-    print("Connecting to Snowflake...")
-    print("Account:", SNOWFLAKE_ACCOUNT)
-
     return snowflake.connector.connect(
         user=SNOWFLAKE_USER,
         password=SNOWFLAKE_PASSWORD,
+        # account=SNOWFLAKE_ACCOUNT,
         account=SNOWFLAKE_ACCOUNT,
-
         role=SNOWFLAKE_ROLE,
         warehouse=SNOWFLAKE_WAREHOUSE,
-
-        
     )
 
 
